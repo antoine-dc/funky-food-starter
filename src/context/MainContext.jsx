@@ -1,31 +1,8 @@
-import { createContext, useEffect, useState, useTransition } from "react";
-import { getRecipes, getRecipesSearch } from "../services/recipesService";
+import { createContext, useState } from "react";
+import data from "../data/menu.json";
 
 export const MainContext = createContext();
 
-export function MainProvider({ children }) {
-  const [menuData, setMenuData] = useState([]);
-  const [isPending, startTransition] = useTransition();
-
-  useEffect(() => {
-    startTransition(() => {
-      getRecipes().then((recipes) => {
-        setMenuData(recipes);
-      });
-    });
-  }, []);
-
-  const searchRecipes = (terms) => {
-    getRecipesSearch(terms).then((recipes) => {
-      setMenuData(recipes);
-    });
-  };
-
-  return (
-    <MainContext.Provider
-      value={{ menuData, setMenuData, searchRecipes, isPending }}
-    >
-      {children}
-    </MainContext.Provider>
-  );
-}
+// Démo 6 : Création du MainProvider
+// Démo 7 : Faire un useEffect avec le le service getRecipes
+// Démo 7 : Création fonction searchRecipes
