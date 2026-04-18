@@ -7,44 +7,19 @@ export function CartProvider({ children }) {
   const [items, setItems] = useState([]);
 
   const addToCart = (dish) => {
-    setItems((currentItems) => {
-      const existingItem = currentItems.find(
-        (item) => item.dish.id === dish.id,
-      );
-
-      if (existingItem) {
-        return currentItems.map((item) =>
-          item.dish.id === dish.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item,
-        );
-      }
-
-      return [...currentItems, { dish, quantity: 1 }];
-    });
+    // TODO
   };
 
   const removeFromCart = (dishId) => {
-    setItems((currentItems) =>
-      currentItems.filter((item) => item.dish.id !== dishId),
-    );
+    // TODO
   };
 
   const updateQuantity = (dishId, quantity) => {
-    if (quantity <= 0) {
-      removeFromCart(dishId);
-      return;
-    }
-
-    setItems((currentItems) =>
-      currentItems.map((item) =>
-        item.dish.id === dishId ? { ...item, quantity } : item,
-      ),
-    );
+    // TODOs
   };
 
   const clearCart = () => {
-    setItems([]);
+    // TODO
   };
 
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);

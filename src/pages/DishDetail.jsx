@@ -17,17 +17,12 @@ import { CartContext } from "../context/CartContext";
 
 export function DishDetail() {
   const { id } = useParams();
-  const { menuData } = useContext(MainContext);
-  const dish = menuData.find((d) => d.id === Number(id));
-  const { addToCart } = useContext(CartContext);
+
+  // TODO
+  const dish = null;
 
   const handleAddToCart = () => {
-    if (dish) {
-      addToCart(dish);
-      toast.success(`${dish.name} ajouté au panier ! 🎉`, {
-        duration: 2000,
-      });
-    }
+    // TODO
   };
 
   if (!dish) {

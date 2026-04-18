@@ -7,7 +7,7 @@ import DishContent from "./DishContent";
 
 export default function Dish({ index, dish }) {
   return (
-    <Link key={dish.id} to={`/dish/${dish.id}`} className="group">
+    <Link key={dish.id} to={`/about`} className="group">
       <div
         className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border-4 border-transparent hover:border-pink-400"
         style={{
