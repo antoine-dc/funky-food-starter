@@ -3,6 +3,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { Toaster } from "sonner";
 import { MainProvider } from "./context/MainContext";
+import { CartProvider } from "./context/CartContext";
 
 function Layout() {
   return (
@@ -11,7 +12,9 @@ function Layout() {
         <Header />
         <main className="bg-white px-4 py-12">
           <div className="max-w-7xl mx-auto">
-            <Outlet />
+            <CartProvider>
+              <Outlet />
+            </CartProvider>
           </div>
         </main>
         <Footer />

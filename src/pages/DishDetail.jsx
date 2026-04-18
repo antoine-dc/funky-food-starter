@@ -9,21 +9,21 @@ import {
   ChefHat,
   ShoppingCart,
 } from "lucide-react";
-// import { useCart } from "../contexts/CartContext";
-// import { CartButton } from "./CartButton";
 import { toast } from "sonner";
 import { MainContext } from "../context/MainContext";
 import { useContext } from "react";
+import { CartButton } from "../components/Cart/CardButton";
+import { CartContext } from "../context/CartContext";
 
 export function DishDetail() {
   const { id } = useParams();
   const { menuData } = useContext(MainContext);
   const dish = menuData.find((d) => d.id === Number(id));
-  //   const { addToCart } = useCart();
+  const { addToCart } = useContext(CartContext);
 
   const handleAddToCart = () => {
     if (dish) {
-      //   addToCart(dish);
+      addToCart(dish);
       toast.success(`${dish.name} ajouté au panier ! 🎉`, {
         duration: 2000,
       });
@@ -49,7 +49,7 @@ export function DishDetail() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-400 via-pink-400 to-orange-300">
-      {/* <CartButton /> */}
+      <CartButton />
 
       {/* Floating Add to Cart Button - Sticky */}
       <button
